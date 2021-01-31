@@ -7,8 +7,8 @@
 *                                                          *
 *  Description: Input frequency 250 MHz. read out in the   *
 *                same width at 50 MHz. To avoid overflow,  *
-*				one cycle before a new data should be      *
-*				signaled for avoiding loss of data.        *
+*               one cycle before a new data should be      *
+*	        signaled for avoiding loss of data.        *
 ************************************************************
 *Revise history:   5/2/19      BY S.T.                     *
 ************************************************************
