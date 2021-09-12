@@ -1,6 +1,6 @@
 /***********************************************************
 ************************************************************
-*  **************  Writen by: Shilin Tian                  *
+*   Writen by: Shilin Tian                                 *
 *  Title: synchronous interface for input/output           *
 ************************************************************
 *  File name: ASYN_FIFO.v                                  *
@@ -13,20 +13,21 @@
 *Revise history:   5/2/19      BY S.T.                     *
 ************************************************************
 ***********************************************************/
+
 `timescale 1 ns / 1 ns
 module  ASYN_FIFO(DATA_OUT, DATA_IN, WD, RD, WCLK, RCLK, WFULL, REMPTY, RST_N);
-	parameter WIDTH = 16;     // DATA SIZE
-	parameter FIFO_DEPTH = 8;  // equals to Busrt - Burst f2/f1 (50 MHz / 250 MHz) 
+	parameter WIDTH = 16;                           // DATA SIZE
+	parameter FIFO_DEPTH = 8;                       // equals to Busrt - Burst f2/f1 (50 MHz / 250 MHz) 
   
-	input WCLK, RCLK, WD, RD, RST_N;  // wd -write fifo singal  rd- read fifo singal
+	input WCLK, RCLK, WD, RD, RST_N;                // wd -write fifo singal  rd- read fifo singal
 	input [WIDTH - 1 : 0] DATA_IN;
 	output [WIDTH - 1: 0] DATA_OUT;
 	output WFULL, REMPTY;
 	
 	reg WFULL, REMPTY;
-	reg [WIDTH-1:0] MEM [FIFO_DEPTH-1:0]; //FIFO MEMORY 
+	reg [WIDTH-1:0] MEM [FIFO_DEPTH-1:0];          //FIFO MEMORY 
 	wire [WIDTH-1 : 0] WADDR,RADDR;
-	reg [WIDTH : 0] WB,RB;  // wriet/read pointer in binary and 
+	reg [WIDTH : 0] WB,RB;                         // wriet/read pointer in binary
 	wire [WIDTH : 0] WG_next,RG_next,WB_next,RB_next;
 	reg [WIDTH : 0] WP,RP;
 	reg [WIDTH : 0] wr1_rp,wr2_rp,rd1_wp,rd2_wp;
